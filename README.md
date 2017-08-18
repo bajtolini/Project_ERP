@@ -1,5 +1,7 @@
 # Program ERP
 
+1. Najpierw projektujemy baze danych
+
 
 
 ## Core:
