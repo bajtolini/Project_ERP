@@ -1,6 +1,8 @@
 # Program ERP
 > Kilka ważnych informacji
 
+1. Najpierw projektujemy baze danych
+
 
 ## Jądro/Jądra:
 
