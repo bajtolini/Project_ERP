@@ -1,13 +1,15 @@
 # Program ERP
-> Kilka ważnych informacji
-
-
-## Jądro/Jądra:
-
-1. Stwórz [*fork*][forking] repozytorium z zadaniami.
 
 
 
-## Moduły:
+## Core:
 
-##Może cuś więcej:
+1. Database Clients
+
+2. Database Products
+
+
+
+## Modules:
+
+## Additional informations:
