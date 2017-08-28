@@ -4,20 +4,58 @@ import java.sql.*;
 
 public class Client {
 
+	public static void Delete(long nip) {
+		Connection conn;
+		try {
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erp?useSSL=false","root","coderslab");
+			PreparedStatement ps = conn.prepareStatement("UPDATE client SET active=0 WHERE nip=?;");
+			ps.setLong(1, nip);
+			ps.executeUpdate();
+			ps.close();
+			conn.close();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+
+
+	public static boolean CheckNip(long nip) {
+		Connection conn;
+		try {
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erp?useSSL=false","root","coderslab");
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM client WHERE nip=?;");
+			ps.setLong(1, nip);
+			ResultSet rs =  ps.executeQuery();
+			if(rs.next()) {
+				return true;
+			}else {
+				return false;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}	
+	}
+
 	public static boolean Submit(Client client) {
 		Connection conn;
 		try {
-			//DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
+			DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erp?useSSL=false","root","coderslab");
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO client VALUES(?, ?, ?, ?, ?, ?, ?, ?)");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO client VALUES(default, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			ps.setString(1, client.name);
-			ps.setInt(2, client.nip);
+			ps.setLong(2, client.nip);
 			ps.setString(3, client.postalcode);
 			ps.setString(4, client.city);
-			ps.setString(5, (client.street+" "+client.housenumber+"//"+client.localnumber));
+			ps.setString(5, (client.street+" "+client.housenumber+"/"+client.localnumber));
 			ps.setInt(6, client.phone);
 			ps.setString(7, client.email);
 			ps.setString(8, client.tag);
+			ps.setInt(9, 1);
 			ps.executeUpdate();
 			ps.close();
 			conn.close();
@@ -30,7 +68,7 @@ public class Client {
 	}
 
 	private String name;
-	private int nip;
+	private long nip;
 	private String postalcode;
 	private String city;
 	private String street;
@@ -40,7 +78,7 @@ public class Client {
 	private String email;
 	private String tag;
 
-	public Client(String name, int nip, String postalcode, String city, String street, String housenumber,
+	public Client(String name, long nip, String postalcode, String city, String street, String housenumber,
 			int localnumber, int phone, String email, String tag) {
 		super();
 		this.name = name;
@@ -61,10 +99,10 @@ public class Client {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getNip() {
+	public long getNip() {
 		return nip;
 	}
-	public void setNip(int nip) {
+	public void setNip(long nip) {
 		this.nip = nip;
 	}
 	public String getPostalcode() {

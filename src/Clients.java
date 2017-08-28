@@ -18,13 +18,13 @@ public class Clients extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		getServletContext().getRequestDispatcher("/WEB-INF/jsp/Clients.jsp").forward(request,	response);	
+		getServletContext().getRequestDispatcher("/WEB-INF/jsp/clients.jsp").forward(request,	response);	
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 String name = request.getParameter("name");
-		 int nip = Integer.parseInt(request.getParameter("nip"));	 
+		 long nip = Long.parseLong(request.getParameter("nip"));	 
 		 String postalcode = request.getParameter("postalcode");
 		 String city = request.getParameter("city");
 		 String street = request.getParameter("street");
@@ -35,9 +35,7 @@ public class Clients extends HttpServlet {
 		 String tag = (request.getParameter("tag") != null) ? request.getParameter("tag") : "";;
 		
 		 Client client = new Client(name, nip, postalcode, city, street, housenumber, localnumber, phone, email, tag);
-		 if(Client.Submit(client)) {
-			 System.out.println("Dodano!");
-		 }
+		 Client.Submit(client);
 		 
 		doGet(request, response);
 	}
