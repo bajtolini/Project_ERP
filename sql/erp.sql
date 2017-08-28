@@ -32,6 +32,7 @@ CREATE TABLE `client` (
   `phone` int(10) unsigned NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `tag` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `nip` (`nip`)
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-28 13:32:21
+-- Dump completed on 2017-08-28 13:57:11
