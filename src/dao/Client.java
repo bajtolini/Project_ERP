@@ -85,7 +85,7 @@ public class Client {
 		}
 	}
 	
-	private Client getClient(ResultSet rs) throws SQLException {
+	private static Client getClient(ResultSet rs) throws SQLException {
 		String name = rs.getString("name");
 		long nip = Long.parseLong(rs.getString("nip"));
 		String postalcode = rs.getString("postalcode");
@@ -99,7 +99,7 @@ public class Client {
 		return new Client(name, nip, postalcode, city, street, housenumber, localnumber, phone, email, tag);
 	}
 	
-	public Map<String,String> getAll() {
+	public Map<String,String> getAllParam() {
 		Map<String, String> clientParam = new HashMap<>();
 		
 		clientParam.put("name", this.name);
@@ -116,7 +116,7 @@ public class Client {
 		return clientParam;
 	}
 	
-	public boolean setAll(Map<String,String> clientParam) {
+	public boolean setAllParam(Map<String,String> clientParam) {
 		try {
 			
 			this.name = clientParam.get("name");

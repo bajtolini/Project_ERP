@@ -13,7 +13,7 @@
 		<label><p>Wprowadź NIP klienta, którego dane chcesz zmienić.</p> <input
 			type="text" name="nip" placeholder="NIP" required> </label>
 		<button type="submit">Wyszukaj</button>
-		<br>
+		<br>${info}
 		<c:if test="${not empty result}">
 		<input type="text" name="name" value="${name}">
 		<input type="text" name="nip" value="${nip}">
