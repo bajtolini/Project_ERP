@@ -5,28 +5,24 @@ import java.sql.*;
 public class Client {
 
 	public static void Delete(long nip) {
-		Connection conn;
 		try {
-			DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erp?useSSL=false","root","coderslab");
+			Connection conn = Connect.getConn();
 			PreparedStatement ps = conn.prepareStatement("UPDATE client SET active=0 WHERE nip=?;");
 			ps.setLong(1, nip);
 			ps.executeUpdate();
 			ps.close();
-			conn.close();
-		}
+			conn.close();	} 
 		catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		}
 	}
 
 
 	public static boolean CheckNip(long nip) {
-		Connection conn;
+
 		try {
-			DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erp?useSSL=false","root","coderslab");
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM client WHERE nip=?;");
+			Connection conn = Connect.getConn();
+			PreparedStatement ps = conn.prepareStatement("SELECT * FROM client WHERE nip=? AND active=1;");
 			ps.setLong(1, nip);
 			ResultSet rs =  ps.executeQuery();
 			if(rs.next()) {
@@ -42,10 +38,8 @@ public class Client {
 	}
 
 	public static boolean Submit(Client client) {
-		Connection conn;
 		try {
-			DriverManager.registerDriver(new com.mysql.jdbc.Driver ());
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/erp?useSSL=false","root","coderslab");
+			Connection conn = Connect.getConn();
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO client VALUES(default, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			ps.setString(1, client.name);
 			ps.setLong(2, client.nip);
