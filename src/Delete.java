@@ -24,7 +24,7 @@ public class Delete extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Long nip = Long.parseLong(request.getParameter("nip"));
-		if(Client.CheckNip(nip)) {
+		if(Client.CheckNip(nip) != null) {
 			Client.Delete(nip);
 			request.setAttribute("info", "Usunięto klienta, którego NIP to: " +nip);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/delete.jsp").forward(request, response);
