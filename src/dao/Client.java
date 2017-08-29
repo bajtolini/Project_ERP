@@ -62,15 +62,55 @@ public class Client {
 		}
 	}
 
-/*	public static List<Client> getAll() {
+	public static List<Client> getAllClients() {
 		List<Client> clients = new ArrayList<>();
-
+		try {
 		Connection conn = Connect.getConn();
 
 		conn.close();
-
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return clients;
-	}*/
+	}
+	
+	public Map<String,String> getAll() {
+		Map<String, String> clientParam = new HashMap<>();
+		
+		clientParam.put("name", this.name);
+		clientParam.put("nip", Long.toString(this.nip));
+		clientParam.put("postalcode", this.postalcode);
+		clientParam.put("city", this.city);
+		clientParam.put("street", this.street);
+		clientParam.put("housenumber", this.housenumber);
+		clientParam.put("localnumber", Integer.toString(this.localnumber));
+		clientParam.put("phone", Integer.toString(this.phone));
+		clientParam.put("email", this.email);
+		clientParam.put("tag", this.tag);
+		
+		return clientParam;
+	}
+	
+	public boolean setAll(Map<String,String> clientParam) {
+		try {
+			
+			this.name = clientParam.get("name");
+			this.nip = Long.parseLong(clientParam.get("nip"));
+			this.postalcode = clientParam.get("postalcode");
+			this.city = clientParam.get("city");
+			this.street = clientParam.get("street");
+			this.housenumber = clientParam.get("housenumber");
+			this.localnumber = Integer.parseInt(clientParam.get("localnumber"));
+			this.phone = Integer.parseInt(clientParam.get("phone"));
+			this.email = clientParam.get("email");
+			this.tag = clientParam.get("tag");
+			this.street = street+" "+housenumber+"/"+localnumber;
+			
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 
 	private String name;
 	private long nip;
