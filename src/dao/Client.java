@@ -40,6 +40,7 @@ public class Client {
 
 	public static boolean Submit(Client client) {
 		try {
+			System.out.println("__________________________________________________________");
 			Connection conn = Connect.getConn();
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO client VALUES(default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			ps.setString(1, client.name);

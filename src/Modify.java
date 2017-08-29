@@ -29,23 +29,24 @@ public class Modify extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		long nip = Long.parseLong(request.getParameter("nip"));
-		if(Client.CheckNip(nip)) {
-			request.setAttribute("result", "Wyszukaj");
-			Connection conn;
-			try {
-				conn = Connect.getConn();
-			} 
-			PreparedStatement ps = conn.prepareStatement("SELECT * FROM client WHERE nip=?;");
-			ps.setLong(1, nip);
-			ResultSet rs = ps.executeQuery();
-			
-			//request.setAttribute("name", );catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		}
-		doGet(request, response);
+//		long nip = Long.parseLong(request.getParameter("nip"));
+//		if(Client.CheckNip(nip)) {
+//			request.setAttribute("result", "Wyszukaj");
+//			Connection conn;
+//			try {
+//				conn = Connect.getConn();
+//			} 
+//			PreparedStatement ps = conn.prepareStatement("SELECT * FROM client WHERE nip=?;");
+//			ps.setLong(1, nip);
+//			ResultSet rs = ps.executeQuery();
+//			
+////			request.setAttribute("name", );
+//			catch (SQLException e) {
+////			 TODO Auto-generated catch block
+////			e.printStackTrace();
+//		}
+////		}
+//		doGet(request, response);
 	}
 
 }

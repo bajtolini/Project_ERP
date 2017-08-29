@@ -32,7 +32,7 @@ public class Clients extends HttpServlet {
 		int localnumber = Integer.parseInt(request.getParameter("localnumber"));
 		int phone = Integer.parseInt(request.getParameter("phone"));;
 		String email = (request.getParameter("email") != null) ? request.getParameter("email") : "";
-		String tag = (request.getParameter("tag") != null) ? request.getParameter("tag") : "";;
+		String tag = (request.getParameter("tag") != null) ? request.getParameter("tag") : "";
 		
 		Client client = new Client(name, nip, postalcode, city, street, housenumber, localnumber, phone, email, tag);
 		Client.Submit(client);
