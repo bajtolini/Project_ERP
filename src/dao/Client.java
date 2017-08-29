@@ -56,8 +56,8 @@ public class Client {
 			ps.executeUpdate();
 			ps.close();
 			conn.close();
-			return true;}
-		catch (SQLException e) {
+			return true;
+		} catch (SQLException e) {
 
 			e.printStackTrace();
 			return false;
@@ -72,7 +72,7 @@ public class Client {
 			ResultSet rs = pr.executeQuery();
 			
 			while(rs.next()) {
-				
+				clients.add(getClient(rs));
 			}
 			
 			rs.close();
@@ -85,7 +85,7 @@ public class Client {
 		}
 	}
 	
-	private Client getClient(ResultSet rs) throws SQLException {
+	private static Client getClient(ResultSet rs) throws SQLException {
 		String name = rs.getString("name");
 		long nip = Long.parseLong(rs.getString("nip"));
 		String postalcode = rs.getString("postalcode");
