@@ -8,7 +8,7 @@
 <title>Clients</title>
 </head>
 <body>
-	<form action="clients" method="post" class="w3-container">
+	<form action="add" method="post" class="w3-container">
     <h2 class="w3-row w3-section">Formularz</h2>
 
 		<input type="text" name="name" placeholder="Nazwa firmy" required>

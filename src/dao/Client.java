@@ -40,7 +40,6 @@ public class Client {
 
 	public static boolean Submit(Client client) {
 		try {
-			System.out.println("__________________________________________________________");
 			Connection conn = Connect.getConn();
 			PreparedStatement ps = conn.prepareStatement("INSERT INTO client VALUES(default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			ps.setString(1, client.name);
@@ -224,4 +223,10 @@ public class Client {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+
+	@Override
+	public String toString() {
+		return this.nip + " || " + this.name + " || " + this.city + ", " + this.postalcode + " " + this.street;
+	}
+	
 }

@@ -29,6 +29,13 @@ public class Search extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Long nip = Long.parseLong(request.getParameter("delete"));
+		if(Client.CheckNip(nip) != null) {
+			Client.Delete(nip);
+			request.setAttribute("info", "Usunięto klienta, którego NIP to: " + nip);
+		}else {
+			request.setAttribute("info", "Nie ma takiego numeru NIP w bazie!");
+		}
 		doGet(request, response);
 	}
 

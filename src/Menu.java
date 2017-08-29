@@ -23,16 +23,16 @@ public class Menu extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("create") != null) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/clients.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/add").forward(request, response);
 		}
 		if (request.getParameter("delete") != null) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/delete.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/delete").forward(request, response);
 		}
 		if (request.getParameter("modify") != null) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/modify.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/modify").forward(request, response);
 		}
 		if (request.getParameter("search") != null) {
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/search.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/search").forward(request, response);
 		}
 
 	}

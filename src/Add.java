@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Client;
 
-@WebServlet("/clients")
-public class Clients extends HttpServlet {
+@WebServlet("/add")
+public class Add extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Clients() {
+    public Add() {
         super();
     }
 

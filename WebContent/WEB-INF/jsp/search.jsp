@@ -11,9 +11,10 @@
 <body>
 	<div>
 		<form action="menu">
-			<input type="submit" value="Do MENU" class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">
+			<input type="submit" value="Do MENU">
 		</form>
 	</div>
+	<h2 style="align-content: center;">${info}</h2>
 	<table>
 		<tr>
 			<th>ID</th>
@@ -25,6 +26,8 @@
 			<th>Telefon</th>
 			<th>Email</th>
 			<th>TAG</th>
+			<th>Edytuj</th>
+			<th>Usuń</th>
 		</tr>
 		<c:forEach items="${clients}" var="client" varStatus="status">
 			<tr>
@@ -37,6 +40,8 @@
 				<td>${client.phone}</td>
 				<td>${client.email}</td>
 				<td>${client.tag}</td>
+				<td>Link to modify</td>
+				<td><form action="search" method="post"><button type="submit" name="delete" value="${client.nip}">Usuń</button></form></td>
 			</tr>
 		</c:forEach>
 	</table>
