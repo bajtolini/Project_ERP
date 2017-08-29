@@ -11,7 +11,7 @@ public class Client {
 			ps.setLong(1, nip);
 			ps.executeUpdate();
 			ps.close();
-			conn.close();	} 
+			conn.close();	}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -34,7 +34,7 @@ public class Client {
 		catch (SQLException e) {
 			e.printStackTrace();
 			return false;
-		}	
+		}
 	}
 
 	public static boolean Submit(Client client) {
@@ -45,7 +45,7 @@ public class Client {
 			ps.setLong(2, client.nip);
 			ps.setString(3, client.postalcode);
 			ps.setString(4, client.city);
-			ps.setString(5, (client.street+" "+client.housenumber+"/"+client.localnumber));
+			ps.setString(5, (client.street));
 			ps.setInt(6, client.phone);
 			ps.setString(7, client.email);
 			ps.setString(8, client.tag);
@@ -58,7 +58,17 @@ public class Client {
 
 			e.printStackTrace();
 			return false;
-		}	
+		}
+	}
+
+	public static List<Client> getAll() {
+		List<Client> clients = new ArrayList<>();
+
+		Connection conn = Connect.getConn();
+
+		conn.close();
+
+		return clients;
 	}
 
 	private String name;
@@ -79,7 +89,7 @@ public class Client {
 		this.nip = nip;
 		this.postalcode = postalcode;
 		this.city = city;
-		this.street = street;
+		this.street = street+" "+housenumber+"/"+localnumber;
 		this.housenumber = housenumber;
 		this.localnumber = localnumber;
 		this.phone = phone;

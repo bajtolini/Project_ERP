@@ -9,6 +9,8 @@
 </head>
 <body>
 	<form action="clients" method="post" class="w3-container">
+    <h2 class="w3-row w3-section">Formularz</h2>
+
 		<input type="text" name="name" placeholder="Nazwa firmy" required>
 		<input type="text" name="nip" placeholder="NIP" required>
 		<input type="text" name="postalcode" placeholder="Kod pocztowy" min="1" required>
@@ -21,8 +23,8 @@
 		<input type="text" name="tag" placeholder="TAG">
 		<input type="submit" value="Zatwierdź">
 	</form>
-	<form action="menu">
-		<input type="submit" value="Do MENU">
+  <form action="menu">
+		<input type="submit" value="Do MENU" class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">
 	</form>
 </body>
 </html>

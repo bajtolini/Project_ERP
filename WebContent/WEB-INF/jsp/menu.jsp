@@ -4,17 +4,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css" type="text/css"> 
+<link rel="stylesheet" href="css/style.css" type="text/css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Menu</title>
 </head>
 <body>
 <form action="menu" method="post">
-<button type="submit" name="create" value="create">Dodaj klienta</button>
-<br>
-<button type="submit" name="delete" value="delete">Usuń klienta</button> 
-<br>
-<button type="submit" name="modify" value="modify">Zmień dane</button>
+  <button type="submit" name="create" value="create">Dodaj klienta</button>
+  <br>
+  <button type="submit" name="delete" value="delete">Usuń klienta</button>
+  <br>
+  <button type="submit" name="modify" value="modify">Zmień dane</button>
+  <br>
+  <button type="submit" name="search" value="search">Wyszukaj kontrahenta</button>
 </form>
 </body>
 </html>
