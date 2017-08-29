@@ -8,18 +8,21 @@
 <title>Clients</title>
 </head>
 <body>
-<form action="clients" method="post">
-<input type="text" name="name" placeholder="Nazwa firmy" required>
-<input type="text" name="nip" placeholder="NIP" required>
-<input type="text" name="postalcode" placeholder="Kod pocztowy" min="1" required>
-<input type="text" name="city" placeholder="Miasto" required>
-<input type="text" name="street" placeholder="Ulica" required>
-<input type="text" name="housenumber" placeholder="Numer domu" min="1" required>
-<input type="number" name="localnumber" placeholder="Numer mieszkania" min="1">
-<input type="tel" name="phone" placeholder="Numer telefonu" required>
-<input type="email" name="email" placeholder="Email">
-<input type="text" name="tag" placeholder="TAG">
-<input type="submit" value="Zatwierdź">
-</form>
+	<form action="clients" method="post" class="w3-container">
+		<input type="text" name="name" placeholder="Nazwa firmy" required>
+		<input type="text" name="nip" placeholder="NIP" required>
+		<input type="text" name="postalcode" placeholder="Kod pocztowy" min="1" required>
+		<input type="text" name="city" placeholder="Miasto" required>
+		<input type="text" name="street" placeholder="Ulica" required>
+		<input type="text" name="housenumber" placeholder="Numer domu" min="1" required>
+		<input type="number" name="localnumber" placeholder="Numer mieszkania" min="1">
+		<input type="tel" name="phone" placeholder="Numer telefonu" required>
+		<input type="email" name="email" placeholder="Email">
+		<input type="text" name="tag" placeholder="TAG">
+		<input type="submit" value="Zatwierdź">
+	</form>
+	<form action="menu">
+		<input type="submit" value="Do MENU">
+	</form>
 </body>
 </html>

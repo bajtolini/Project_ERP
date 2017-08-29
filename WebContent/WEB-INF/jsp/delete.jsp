@@ -15,5 +15,8 @@
 			type="text" name="nip" placeholder="NIP" required> </label>
 		<button type="submit">Usuń</button>
 	</form>
+	<form action="menu">
+		<input type="submit" value="Do MENU">
+	</form>
 </body>
 </html>
