@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.*;
+import java.util.*;
 
 public class Client {
 
@@ -61,7 +62,7 @@ public class Client {
 		}
 	}
 
-	public static List<Client> getAll() {
+/*	public static List<Client> getAll() {
 		List<Client> clients = new ArrayList<>();
 
 		Connection conn = Connect.getConn();
@@ -69,7 +70,7 @@ public class Client {
 		conn.close();
 
 		return clients;
-	}
+	}*/
 
 	private String name;
 	private long nip;
