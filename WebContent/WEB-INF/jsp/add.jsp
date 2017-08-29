@@ -23,7 +23,7 @@
 		<input type="text" name="tag" placeholder="TAG">
 		<input type="submit" value="Zatwierdź">
 	</form>
-  <form action="menu">
+	<form action="menu">
 		<input type="submit" value="Do MENU" class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">
 	</form>
 </body>

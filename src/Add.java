@@ -13,12 +13,12 @@ import dao.Client;
 public class Add extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    public Add() {
-        super();
-    }
+	public Add() {
+		super();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		getServletContext().getRequestDispatcher("/WEB-INF/jsp/clients.jsp").forward(request,	response);	
+		getServletContext().getRequestDispatcher("/WEB-INF/jsp/add.jsp").forward(request,	response);	
 
 	}
 

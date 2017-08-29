@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 public class Menu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-
 	public Menu() {
 		super();
 	}
@@ -22,19 +21,6 @@ public class Menu extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if (request.getParameter("create") != null) {
-			getServletContext().getRequestDispatcher("/add").forward(request, response);
-		}
-		if (request.getParameter("delete") != null) {
-			getServletContext().getRequestDispatcher("/delete").forward(request, response);
-		}
-		if (request.getParameter("modify") != null) {
-			getServletContext().getRequestDispatcher("/modify").forward(request, response);
-		}
-		if (request.getParameter("search") != null) {
-			getServletContext().getRequestDispatcher("/search").forward(request, response);
-		}
-
 	}
 
 }
