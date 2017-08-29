@@ -23,20 +23,20 @@ public class Clients extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 String name = request.getParameter("name");
-		 long nip = Long.parseLong(request.getParameter("nip"));	 
-		 String postalcode = request.getParameter("postalcode");
-		 String city = request.getParameter("city");
-		 String street = request.getParameter("street");
-		 String housenumber = request.getParameter("housenumber");
-		 int localnumber = Integer.parseInt(request.getParameter("localnumber"));
-		 int phone = Integer.parseInt(request.getParameter("phone"));;
-		 String email = (request.getParameter("email") != null) ? request.getParameter("email") : "";
-		 String tag = (request.getParameter("tag") != null) ? request.getParameter("tag") : "";;
+		String name = request.getParameter("name");
+		long nip = Long.parseLong(request.getParameter("nip"));	 
+		String postalcode = request.getParameter("postalcode");
+		String city = request.getParameter("city");
+		String street = request.getParameter("street");
+		String housenumber = request.getParameter("housenumber");
+		int localnumber = Integer.parseInt(request.getParameter("localnumber"));
+		int phone = Integer.parseInt(request.getParameter("phone"));;
+		String email = (request.getParameter("email") != null) ? request.getParameter("email") : "";
+		String tag = (request.getParameter("tag") != null) ? request.getParameter("tag") : "";;
 		
-		 Client client = new Client(name, nip, postalcode, city, street, housenumber, localnumber, phone, email, tag);
-		 Client.Submit(client);
-		 
+		Client client = new Client(name, nip, postalcode, city, street, housenumber, localnumber, phone, email, tag);
+		Client.Submit(client);
+		
 		doGet(request, response);
 	}
 
