@@ -41,16 +41,18 @@ public class Client {
 	public static boolean Submit(Client client) {
 		try {
 			Connection conn = Connect.getConn();
-			PreparedStatement ps = conn.prepareStatement("INSERT INTO client VALUES(default, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+			PreparedStatement ps = conn.prepareStatement("INSERT INTO client VALUES(default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 			ps.setString(1, client.name);
 			ps.setLong(2, client.nip);
 			ps.setString(3, client.postalcode);
 			ps.setString(4, client.city);
-			ps.setString(5, (client.street));
-			ps.setInt(6, client.phone);
-			ps.setString(7, client.email);
-			ps.setString(8, client.tag);
-			ps.setInt(9, 1);
+			ps.setString(5, client.street);
+			ps.setString(6, client.housenumber);
+			ps.setInt(7, client.localnumber);
+			ps.setInt(8, client.phone);
+			ps.setString(9, client.email);
+			ps.setString(10, client.tag);
+			ps.setInt(11, 1);
 			ps.executeUpdate();
 			ps.close();
 			conn.close();
@@ -65,13 +67,36 @@ public class Client {
 	public static List<Client> getAllClients() {
 		List<Client> clients = new ArrayList<>();
 		try {
-		Connection conn = Connect.getConn();
-
-		conn.close();
+			Connection conn = Connect.getConn();
+			PreparedStatement pr = conn.prepareStatement("SELECT * FROM client;");
+			ResultSet rs = pr.executeQuery();
+			
+			while(rs.next()) {
+				
+			}
+			
+			rs.close();
+			pr.close();
+			conn.close();
+			return clients;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return clients;
+	}
+	
+	private Client getClient(ResultSet rs) throws SQLException {
+		String name = rs.getString("name");
+		long nip = Long.parseLong(rs.getString("nip"));
+		String postalcode = rs.getString("postalcode");
+		String city = rs.getString("city");
+		String street = rs.getString("street");
+		String housenumber = rs.getString("housenumber");
+		int localnumber = Integer.parseInt(rs.getString("localnumber"));
+		int phone = Integer.parseInt(rs.getString("phone"));
+		String email = rs.getString("email");
+		String tag = rs.getString("tag");
+		return new Client(name, nip, postalcode, city, street, housenumber, localnumber, phone, email, tag);
 	}
 	
 	public Map<String,String> getAll() {
@@ -130,7 +155,7 @@ public class Client {
 		this.nip = nip;
 		this.postalcode = postalcode;
 		this.city = city;
-		this.street = street+" "+housenumber+"/"+localnumber;
+		this.street = street;
 		this.housenumber = housenumber;
 		this.localnumber = localnumber;
 		this.phone = phone;
