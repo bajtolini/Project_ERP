@@ -15,16 +15,52 @@
 		<button type="submit">Wyszukaj</button>
 		<br>${info}
 		<c:if test="${not empty result}">
-		<input type="text" name="name" value="${name}">
-		<input type="text" name="nip" value="${nip}">
-		<input type="text" name="postalcode" value="${postalcode}">
-		<input type="text" name="city" value="${city}">
-		<input type="text" name="street" value="${street}">
-		<input type="text" name="housenumber" value="${housenumber}">
-		<input type="number" name="localnumber" value="${localnumber}">
-		<input type="tel" name="phone" value="${phone}">
-		<input type="email" name="email" value="${email}">
-		<input type="text" name="tag" value="${tag}">
+		<hr>
+		<label><p>Zmień dane i kliknij 'Zatwierdź':</p></label>
+		<table>
+		<tr>
+		<td>Nazwa firmy</td>
+		<td><input type="text" name="name" value="${name}"></td>
+		</tr>
+		<tr>
+		<td>NIP</td>
+		<td><input type="text" name="nip" value="${nip}"></td>
+		</tr>
+		<tr>
+		<td>Kod pocztowy</td> 
+		<td><input type="text" name="postalcode" value="${postalcode}"></td>
+		</tr>
+		<tr>
+		<td>Miasto</td>
+		<td><input type="text" name="city" value="${city}"></td>
+		</tr>
+		<tr>
+		<td>Ulica</td> 
+		<td><input type="text" name="street" value="${street}"></td>
+		</tr>
+		<tr>
+		<td>Numer domu</td> 
+		<td><input type="text" name="housenumber" value="${housenumber}"></td>
+		</tr>
+		<tr>
+		<td>Numer mieszkania</td> 
+		<td><input type="number" name="localnumber" value="${localnumber}"></td>
+		</tr>
+		<tr>
+		<td>Numer telefonu</td> 
+		<td><input type="tel" name="phone" value="${phone}"></td>
+		</tr>
+		<tr>
+		<td>Email</td> 
+		<td><input type="email" name="email" value="${email}"></td>
+		</tr>
+		<tr>
+		<td>Tag</td>
+		<td><input type="text" name="tag" value="${tag}"></td>
+		</tr>
+	</table>
+	<input type="submit" value="Zatwierdź">
+		<hr>
 		</c:if>
 	</form>
 	<form action="menu">

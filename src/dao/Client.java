@@ -19,7 +19,7 @@ public class Client {
 	}
 
 
-	public static boolean CheckNip(long nip) {
+	public static Client CheckNip(long nip) {
 
 		try {
 			Connection conn = Connect.getConn();
@@ -27,14 +27,15 @@ public class Client {
 			ps.setLong(1, nip);
 			ResultSet rs =  ps.executeQuery();
 			if(rs.next()) {
-				return true;
+				Client client = getClient(rs);
+				return client;
 			}else {
-				return false;
+				return null;
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			return false;
+			return null;
 		}
 	}
 
