@@ -130,7 +130,7 @@ public class Client {
 			this.phone = Integer.parseInt(clientParam.get("phone"));
 			this.email = clientParam.get("email");
 			this.tag = clientParam.get("tag");
-			this.street = street+" "+housenumber+"/"+localnumber;
+			//this.street = street+" "+housenumber+"/"+localnumber;
 			
 			return true;
 		} catch (Exception e) {
