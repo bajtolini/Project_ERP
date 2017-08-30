@@ -17,7 +17,7 @@
 		<br>${info}
 	</form>
 	<form action="menu">
-		<input type="submit" value="Do MENU">
+		<input type="submit" value="Wróć">
 	</form>
 </body>
 </html>
