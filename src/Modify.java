@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
@@ -21,6 +22,9 @@ import dao.Connect;
 public class Modify extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	private static Map<String, String> clientParam;
+	private static Set<String> set;
+	private static long nip;
 	public Modify() {
 		super();
 	}
@@ -31,15 +35,49 @@ public class Modify extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		long nip = Long.parseLong(request.getParameter("nip"));
-		if(Client.CheckNip(nip) != null) {
-			request.setAttribute("result", "Wyszukaj");
-			Map<String, String> parameters = Client.CheckNip(nip).getAllParam();
-			Set<String> set = parameters.keySet(); 
-			for (String klucz : set) {
-				request.setAttribute(klucz, parameters.get(klucz));
+		if(request.getParameter("search") != null) {
+			nip = Long.parseLong(request.getParameter("nip"));
+			if(Client.CheckNip(nip) != null) {
+				request.setAttribute("result", "Wyszukaj");
+				clientParam = Client.CheckNip(nip).getAllParam();
+				set = clientParam.keySet(); 
+				for (String klucz : set) {
+					request.setAttribute(klucz, clientParam.get(klucz));
+				}
 			}
-		}else {
+		}
+		else if(request.getParameter("submit") != null) {
+			for (String klucz : set) {
+				clientParam.put(klucz, request.getParameter(klucz));
+			}
+			
+				Client client = Client.CheckNip(Long.parseLong(clientParam.get("nip")));
+				client.setAllParam(clientParam);
+				try {
+					Connection conn = Connect.getConn();
+					PreparedStatement ps = conn.prepareStatement("UPDATE client SET name=?, nip=?, postalcode=?, city=?, street=?,"
+							+ "housenumber=?, localnumber=?, phone=?, email=?, tag=? WHERE nip=?;");
+					ps.setString(1, client.getName());
+					ps.setLong(2, client.getNip());
+					ps.setString(3, client.getPostalcode());
+					ps.setString(4, client.getCity());
+					ps.setString(5, client.getStreet());
+					ps.setString(6, client.getHousenumber());
+					ps.setInt(7, client.getLocalnumber());
+					ps.setInt(8, client.getPhone());
+					ps.setString(9, client.getEmail());
+					ps.setString(10, client.getTag());
+					ps.setLong(11, nip);
+					ps.executeUpdate();
+					ps.close();
+					conn.close();
+					request.setAttribute("added", "Pomyślnie zmieniono dane!");
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+
+			}
+		else {
 			request.setAttribute("info", "Nie ma takiego numeru NIP w bazie!");
 		}
 		doGet(request, response);
