@@ -69,7 +69,7 @@ public class Client {
 		List<Client> clients = new ArrayList<>();
 		try {
 			Connection conn = Connect.getConn();
-			PreparedStatement pr = conn.prepareStatement("SELECT * FROM client;");
+			PreparedStatement pr = conn.prepareStatement("SELECT * FROM client WHERE active = 1;");
 			ResultSet rs = pr.executeQuery();
 			
 			while(rs.next()) {

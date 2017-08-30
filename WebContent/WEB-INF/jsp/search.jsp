@@ -14,22 +14,28 @@
 			<input type="submit" value="Do MENU">
 		</form>
 	</div>
+	
 	<h2 style="align-content: center;">${info}</h2>
+	
+	<c:if test="${empty clients}"><h2>Nie ma klientów</h2></c:if>
+	
 	<table>
-		<tr>
-			<th>ID</th>
-			<th>Nazwa</th>
-			<th>NIP</th>
-			<th>Kod pocztowy</th>
-			<th>Miasto</th>
-			<th>Ulica</th>
-			<th>Telefon</th>
-			<th>Email</th>
-			<th>TAG</th>
-			<th>Edytuj</th>
-			<th>Usuń</th>
-		</tr>
-		<c:forEach items="${clients}" var="client" varStatus="status">
+	<c:forEach items="${clients}" var="client" varStatus="status">
+			<c:if test="${status.count == 1}">
+				<tr>
+					<th>ID</th>
+					<th>Nazwa</th>
+					<th>NIP</th>
+					<th>Kod pocztowy</th>
+					<th>Miasto</th>
+					<th>Ulica</th>
+					<th>Telefon</th>
+					<th>Email</th>
+					<th>TAG</th>
+					<th>Edytuj</th>
+					<th>Usuń</th>
+				</tr>
+			</c:if>
 			<tr>
 				<td>${status.count}</td>
 				<td>${client.name}</td>
@@ -43,7 +49,7 @@
 				<td>Link to modify</td>
 				<td><form action="search" method="post"><button type="submit" name="delete" value="${client.nip}">Usuń</button></form></td>
 			</tr>
-		</c:forEach>
+	</c:forEach>
 	</table>
 </body>
 </html>
