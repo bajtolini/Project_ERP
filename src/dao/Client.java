@@ -88,13 +88,13 @@ public class Client {
 	
 	private static Client getClient(ResultSet rs) throws SQLException {
 		String name = rs.getString("name");
-		long nip = Long.parseLong(rs.getString("nip"));
+		Long nip = Long.parseLong(rs.getString("nip"));
 		String postalcode = rs.getString("postalcode");
 		String city = rs.getString("city");
 		String street = rs.getString("street");
 		String housenumber = rs.getString("housenumber");
-		int localnumber = Integer.parseInt(rs.getString("localnumber"));
-		int phone = Integer.parseInt(rs.getString("phone"));
+		Integer localnumber = Integer.parseInt(rs.getString("localnumber"));
+		Integer phone = Integer.parseInt(rs.getString("phone"));
 		String email = rs.getString("email");
 		String tag = rs.getString("tag");
 		return new Client(name, nip, postalcode, city, street, housenumber, localnumber, phone, email, tag);
@@ -139,18 +139,18 @@ public class Client {
 	}
 
 	private String name;
-	private long nip;
+	private Long nip;
 	private String postalcode;
 	private String city;
 	private String street;
 	private String housenumber;
-	private int localnumber;
-	private int phone;
+	private Integer localnumber;
+	private Integer phone;
 	private String email;
 	private String tag;
 
-	public Client(String name, long nip, String postalcode, String city, String street, String housenumber,
-			int localnumber, int phone, String email, String tag) {
+	public Client(String name, Long nip, String postalcode, String city, String street, String housenumber,
+			Integer localnumber, Integer phone, String email, String tag) {
 		super();
 		this.name = name;
 		this.nip = nip;
@@ -170,10 +170,10 @@ public class Client {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public long getNip() {
+	public Long getNip() {
 		return nip;
 	}
-	public void setNip(long nip) {
+	public void setNip(Long nip) {
 		this.nip = nip;
 	}
 	public String getPostalcode() {
@@ -200,16 +200,16 @@ public class Client {
 	public void setHousenumber(String housenumber) {
 		this.housenumber = housenumber;
 	}
-	public int getLocalnumber() {
+	public Integer getLocalnumber() {
 		return localnumber;
 	}
-	public void setLocalnumber(int localnumber) {
+	public void setLocalnumber(Integer localnumber) {
 		this.localnumber = localnumber;
 	}
-	public int getPhone() {
+	public Integer getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(Integer phone) {
 		this.phone = phone;
 	}
 	public String getEmail() {

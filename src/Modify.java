@@ -24,7 +24,7 @@ public class Modify extends HttpServlet {
 
 	private static Map<String, String> clientParam;
 	private static Set<String> set;
-	private static long nip;
+	private static Long nip;
 	public Modify() {
 		super();
 	}

@@ -30,13 +30,12 @@ CREATE TABLE `client` (
   `city` varchar(255) NOT NULL,
   `street` varchar(255) NOT NULL,
   `housenumber` varchar(255) NOT NULL,
-  `localnumber` int unsigned NOT NULL,
-  `phone` int(10) unsigned NOT NULL,
+  `localnumber` int unsigned DEFAULT NULL,
+  `phone` int(10) unsigned DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `tag` varchar(255) DEFAULT NULL,
   `active` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
   UNIQUE KEY `nip` (`nip`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
