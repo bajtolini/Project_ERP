@@ -24,13 +24,13 @@ public class Add extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String name = request.getParameter("name");
-		long nip = Long.parseLong(request.getParameter("nip"));	 
+		Long nip = Long.parseLong(request.getParameter("nip"));	 
 		String postalcode = request.getParameter("postalcode");
 		String city = request.getParameter("city");
 		String street = request.getParameter("street");
 		String housenumber = request.getParameter("housenumber");
-		int localnumber = Integer.parseInt(request.getParameter("localnumber"));
-		int phone = Integer.parseInt(request.getParameter("phone"));;
+		Integer localnumber = (request.getParameter("localnumber") != null) ? Integer.parseInt(request.getParameter("localnumber")) : null;
+		Integer phone = (request.getParameter("phone") != null) ? Integer.parseInt(request.getParameter("phone")) : null;
 		String email = (request.getParameter("email") != null) ? request.getParameter("email") : "";
 		String tag = (request.getParameter("tag") != null) ? request.getParameter("tag") : "";
 		
