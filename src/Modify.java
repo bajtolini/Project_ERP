@@ -45,6 +45,9 @@ public class Modify extends HttpServlet {
 					request.setAttribute(klucz, clientParam.get(klucz));
 				}
 			}
+			else {
+				request.setAttribute("info", "Nie ma takiego numeru NIP w bazie!");
+			}
 		}
 		else if(request.getParameter("submit") != null) {
 			for (String klucz : set) {
@@ -77,9 +80,9 @@ public class Modify extends HttpServlet {
 				}
 
 			}
-		else {
-			request.setAttribute("info", "Nie ma takiego numeru NIP w bazie!");
-		}
+//		else {
+//			request.setAttribute("info", "Nie ma takiego numeru NIP w bazie!");
+//		}
 		doGet(request, response);
 	}
 

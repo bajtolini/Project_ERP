@@ -16,7 +16,7 @@ td, th {
 }
 </style>
 
-<title>Witaj w panelu wyszukiwania</title>
+<title>Wyszukaj kontrahenta</title>
 </head>
 <body>
 	<div
