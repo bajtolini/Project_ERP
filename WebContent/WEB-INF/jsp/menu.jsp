@@ -12,32 +12,35 @@
 </head>
 <body>
 
-	<div
-		class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
-		<form action="add">
-			<button type="submit"
-				class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Dodaj
-				klienta</button>
-		</form>
+	<div style="padding-left: 33%;">
+		<div
+			class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin"
+			style="width: 50%;">
+			<form action="add">
+				<button type="submit"
+					class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Dodaj
+					klienta</button>
+			</form>
 
-		<form action="delete">
-			<button type="submit"
-				class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Usuń
-				klienta</button>
-		</form>
+			<form action="delete">
+				<button type="submit"
+					class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Usuń
+					klienta</button>
+			</form>
 
-		<form action="modify">
-			<button type="submit"
-				class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Zmień
-				dane</button>
-		</form>
+			<form action="modify">
+				<button type="submit"
+					class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Zmień
+					dane</button>
+			</form>
 
-		<form action="search">
-			<button type="submit"
-				class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Wyszukaj
-				kontrahenta</button>
-		</form>
+			<form action="search">
+				<button type="submit"
+					class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Wyszukaj
+					kontrahenta</button>
+			</form>
+		</div>
 	</div>
-
+	
 </body>
 </html>

@@ -49,7 +49,7 @@ public class Client {
 			ps.setString(4, client.city);
 			ps.setString(5, client.street);
 			ps.setString(6, client.housenumber);
-			ps.setInt(7, client.localnumber);
+			ps.setString(7, client.localnumber);
 			ps.setInt(8, client.phone);
 			ps.setString(9, client.email);
 			ps.setString(10, client.tag);
@@ -93,7 +93,7 @@ public class Client {
 		String city = rs.getString("city");
 		String street = rs.getString("street");
 		String housenumber = rs.getString("housenumber");
-		Integer localnumber = Integer.parseInt(rs.getString("localnumber"));
+		String localnumber = rs.getString("localnumber");
 		Integer phone = Integer.parseInt(rs.getString("phone"));
 		String email = rs.getString("email");
 		String tag = rs.getString("tag");
@@ -109,7 +109,7 @@ public class Client {
 		clientParam.put("city", this.city);
 		clientParam.put("street", this.street);
 		clientParam.put("housenumber", this.housenumber);
-		clientParam.put("localnumber", Integer.toString(this.localnumber));
+		clientParam.put("localnumber", this.localnumber);
 		clientParam.put("phone", Integer.toString(this.phone));
 		clientParam.put("email", this.email);
 		clientParam.put("tag", this.tag);
@@ -126,14 +126,14 @@ public class Client {
 			this.city = clientParam.get("city");
 			this.street = clientParam.get("street");
 			this.housenumber = clientParam.get("housenumber");
-			this.localnumber = Integer.parseInt(clientParam.get("localnumber"));
+			this.localnumber = clientParam.get("localnumber");
 			this.phone = Integer.parseInt(clientParam.get("phone"));
 			this.email = clientParam.get("email");
 			this.tag = clientParam.get("tag");
-			//this.street = street+" "+housenumber+"/"+localnumber;
 			
 			return true;
 		} catch (Exception e) {
+			System.out.println(clientParam.toString());
 			return false;
 		}
 	}
@@ -144,13 +144,13 @@ public class Client {
 	private String city;
 	private String street;
 	private String housenumber;
-	private Integer localnumber;
+	private String localnumber;
 	private Integer phone;
 	private String email;
 	private String tag;
 
 	public Client(String name, Long nip, String postalcode, String city, String street, String housenumber,
-			Integer localnumber, Integer phone, String email, String tag) {
+			String localnumber, Integer phone, String email, String tag) {
 		super();
 		this.name = name;
 		this.nip = nip;
@@ -200,10 +200,10 @@ public class Client {
 	public void setHousenumber(String housenumber) {
 		this.housenumber = housenumber;
 	}
-	public Integer getLocalnumber() {
+	public String getLocalnumber() {
 		return localnumber;
 	}
-	public void setLocalnumber(Integer localnumber) {
+	public void setLocalnumber(String localnumber) {
 		this.localnumber = localnumber;
 	}
 	public Integer getPhone() {
