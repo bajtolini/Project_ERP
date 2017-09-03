@@ -116,6 +116,8 @@
 						<input type="text" class="w3-input w3-border" name="tag"
 							placeholder="TAG">
 					</div>
+					<div
+								class="w3-padding w3-center w3-text-red w3-block w3-section">${added}</div>
 				</div>
 
 				<input type="submit" value="Zatwierdź"

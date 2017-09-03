@@ -33,7 +33,11 @@ public class Modify extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("search") != null) {
+		String fromModify = request.getParameter("fromModify");
+		if(fromModify != null) {
+			request.setAttribute("fromModify", fromModify);
+			}
+		else if(request.getParameter("search") != null) {
 			nip = Long.parseLong(request.getParameter("nip"));
 			if(Client.CheckNip(nip) != null) {
 				request.setAttribute("result", "Wyszukaj");
@@ -72,7 +76,7 @@ public class Modify extends HttpServlet {
 				ps.executeUpdate();
 				ps.close();
 				conn.close();
-				request.setAttribute("added", "Pomyślnie zmieniono dane!");
+				request.setAttribute("modified", "Zmieniono dane!");
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

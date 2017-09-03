@@ -36,7 +36,7 @@ public class Add extends HttpServlet {
 		
 		Client client = new Client(name, nip, postalcode, city, street, housenumber, localnumber, phone, email, tag);
 		Client.Submit(client);
-		
+		request.setAttribute("added", "Dodano klienta!");
 		doGet(request, response);
 	}
 

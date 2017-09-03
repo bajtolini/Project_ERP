@@ -21,24 +21,21 @@
 
 				<h2 class="w3-center">Formularz zmiany danych</h2>
 				<h4 class="w3-center w3-large w3-text-indigo">Wprowadź NIP
-					klienta, do zmiany</h4>
-				
+					klienta, którego dane chcesz zmienić</h4><br>
 				<div class="w3-row w3-section">
 					<div class="w3-col" style="width: 50px">
 						<i class="w3-xxlarge fa fa-pencil"></i>
 					</div>
 					<div class="w3-rest">
-						<input type="text" name="nip" placeholder="NIP"
+						<input type="text" name="nip" placeholder="NIP" value="${fromModify}"
 							class="w3-input w3-border" required>
 					</div>
-					<br>${info}
-				</div>
-				<button type="submit" name="search" value="${look}"
-					class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">Wyszukaj</button>
+					<div
+								class="w3-padding w3-center w3-text-red w3-block w3-section">${info}</div>
+					<input type="submit" name="search" value="Zmień dane"
+						class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">
 			</form>
-			
 			<form action="menu">
-
 				<input type="submit" value="Wróć"
 					class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">
 			</form>
@@ -49,109 +46,132 @@
 					<p class="w3-center w3-large w3-text-indigo">Zmień dane i
 						kliknij 'Zatwierdź'</p>
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-user"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">Nazwa</div>
 						</div>
 						<div class="w3-rest">
 							<input type="text" class="w3-input w3-border" name="name"
-								placeholder="Nazwa" value="${name}">
+								value="${name}" placeholder="Pole wymagane" required>
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-user"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px" >NIP</div>
 						</div>
 						<div class="w3-rest">
 							<input type="text" class="w3-input w3-border" name="nip"
-								placeholder="Nip" value="${nip}">
+								value="${nip}" placeholder="Pole wymagane" required>
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-address-book-o"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">Kod pocztowy</div>
 						</div>
 						<div class="w3-rest">
 							<input type="text" class="w3-input w3-border" name="postalcode"
-								placeholder="Kod pocztowy" value="${postalcode}">
+								style="height: 40px"
+								value="${postalcode}" placeholder="Pole wymagane" required>
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-plus"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">Miasto</div>
 						</div>
 						<div class="w3-rest">
 							<input type="text" class="w3-input w3-border" name="city"
-								placeholder="Miasto" value="${city}">
+						value="${city}" placeholder="Pole wymagane" required>
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-road"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">Ulica</div>
 						</div>
 						<div class="w3-rest">
 							<input type="text" class="w3-input w3-border" name="street"
-								placeholder="Ulica" value="${street}">
+							value="${street}" placeholder="Pole wymagane" required>
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-plus"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">Numer domu</div>
 						</div>
 						<div class="w3-rest">
 							<input type="text" class="w3-input w3-border" name="housenumber"
-								placeholder="Nr" value="${housenumber}">
+							value="${housenumber}" placeholder="Pole wymagane" required>
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-plus"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">Numer lokalu</div>
 						</div>
 						<div class="w3-rest">
 							<input type="number" class="w3-input w3-border"
-								placeholder="Nr lokalu" name="localnumber" value="${localnumber}">
+							name="localnumber"
+								value="${localnumber}">
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-phone"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">Telefon</div>
 						</div>
 						<div class="w3-rest">
 							<input type="tel" class="w3-input w3-border" name="phone"
-								placeholder="Telefon" value="${phone}">
+						value="${phone}" placeholder="Pole wymagane" required>
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-envelope-o"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">Email</div>
 						</div>
 						<div class="w3-rest">
 							<input type="email" class="w3-input w3-border" name="email"
-								placeholder="Email" value="${email}">
+						value="${email}">
 						</div>
 					</div>
 
 					<div class="w3-row w3-section">
-						<div class="w3-col" style="width: 50px">
-							<i class="w3-xxlarge fa fa-tag"></i>
+						<div class="w3-col" style="width: 140px">
+							<div
+								class="w3-grey w3-padding w3-center w3-text-indigo w3-small"
+								style="width: 120px">TAG</div>
 						</div>
 						<div class="w3-rest">
 							<input type="text" class="w3-input w3-border" name="tag"
-								placeholder="Tag" value="${tag}">
+							 value="${tag}">
 						</div>
 					</div>
 
 					<input type="submit" value="Zatwierdź" name="submit"
 						class="w3-button w3-block w3-section w3-blue w3-ripple w3-padding">
 				</c:if>
-				${added}
+					<div
+								class="w3-padding w3-center w3-text-red w3-block w3-section">${modified}</div>
 			</form>
 		</div>
 	</div>
