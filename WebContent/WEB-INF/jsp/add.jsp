@@ -10,7 +10,7 @@
 <title>Dodaj klienta</title>
 </head>
 <body>
-
+	<script src="js/javascript.js"></script>
 	<div style="padding-left: 33%;">
 		<div
 			class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin"
@@ -43,7 +43,7 @@
 						<i class="w3-xxlarge fa fa-address-book-o"></i>
 					</div>
 					<div class="w3-rest">
-						<input type="text" class="w3-input w3-border" name="postalcode"
+						<input type="text" class="w3-input w3-border" name="postalcode" 
 							placeholder="Kod pocztowy" min="1" required>
 					</div>
 				</div>
@@ -129,6 +129,6 @@
 			</form>
 		</div>
 	</div>
-
+	
 </body>
 </html>
