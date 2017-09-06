@@ -14,18 +14,54 @@
 td, th {
 	border: 1px solid #dddddd;
 }
+.search[type=text] {
+	width: 65%;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	font-size: 16px;
+	background-color: white;
+	background-image: url('img/searchicon.png');
+	background-size: 3.5%;
+	background-position: 10px 10px; 
+	background-repeat: no-repeat;
+	padding: 12px 20px 12px 40px;
+}
+#search_type {
+	height: 50px;
+}
 </style>
 
 <title>Wyszukaj kontrahenta</title>
 </head>
 <body>
 	<div
-		class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin">
+		class="w3-container w3-card-4 w3-light-grey w3-text-blue w3-margin w3-center">
 		<h3 class="w3-center w3-text-red">${info}</h3>
 		<c:if test="${empty clients}">
 			<h2 class="w3-center">Brak klientów w bazie danych</h2>
 		</c:if>
-
+		
+		<div class="w3-center">
+			<form action="search" method="post">
+				<input class="search" type="text" name="search" placeholder="Search...">
+				<select id="search_type" name="search_type" class="w3-blue w3-ripple w3-padding">
+					<option value="name">Nazwa</option>
+					<option value="nip">NIP</option>
+					<option value="postalcode">Kod pocztowy</option>
+					<option value="city">Miasto</option>
+					<option value="street">Ulica</option>
+					<option value="phone">Telefon</option>
+					<option value="email">Email</option>
+					<option value="tag">TAG</option>
+				</select>
+				<input type="submit" value="Wyszukaj"
+					class="w3-button w3-blue w3-ripple w3-padding" style="height: 50px;">
+			</form>
+		</div>
+		
+		<br>
+		
 		<table
 			class="w3-table-all w3-striped w3-bordered w3-border w3-hoverable w3-text-blue-grey w3-centered w3-cell-middle"
 			style="size: inherit;">
